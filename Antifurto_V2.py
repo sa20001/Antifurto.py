@@ -4,13 +4,20 @@ import ast
 
 # import json
 
+# TODO: gestione eccezione
+# TODO: ciclo while pensarlo meglio, magari che ritorna ogni tot secondi
+
+
 topic_base = 'afp/mr/home/'
 device_id = "SV"
 broker_server = 'broker.hivemq.com'
 
+global server_response_dictionary
+
 # faccio girare il programma in loop,
 while True:
     server_response = 0
+
 
     def callback_connessione(client, userdata, flags, rc):
         print("Connected to the server: \"", broker_server + " \" with result code", str(rc))
@@ -50,3 +57,11 @@ while True:
     client.loop_stop()
     publish.single(topic_base + device_id, payload="Message " + str(server_response_dictionary) + " correctly received",
                    hostname=broker_server)
+
+    program_killer = server_response_dictionary["Status"]
+
+
+    if program_killer == "kill":
+        break
+
+print("Fuori dal ciclo\nProgramma terminato")
