@@ -8,6 +8,7 @@ import ast
 # TODO: ciclo while pensarlo meglio, magari che ritorna ogni tot secondi
 # TODO: file configurazione da cui leggere intervallo di invio
 # TODO: boolean file Json
+# TODO: gestire due connesioni
 
 topic_base = 'afp/mr/home/'
 device_id = "SV"
