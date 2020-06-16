@@ -7,6 +7,7 @@ import ast
 # TODO: gestione eccezione
 # TODO: ciclo while pensarlo meglio, magari che ritorna ogni tot secondi
 # TODO: file configurazione da cui leggere intervallo di invio
+# TODO: boolean file Json
 
 topic_base = 'afp/mr/home/'
 device_id = "SV"
@@ -48,23 +49,26 @@ while True:
     # altri segnali verrano ignorati
     while True:
         if server_response != 0:
-            # dict_str = server_response.decode("UTF-8")
-            # server_response_dictionary = ast.literal_eval(dict_str)
-            # print(repr(server_response_dictionary))
-            # print(type(server_response_dictionary))
-            print(server_response)
+            dict_str = server_response.decode("UTF-8")
+            server_response_dictionary = ast.literal_eval(dict_str)
+            print(repr(server_response_dictionary))
+            print(type(server_response_dictionary))
             break
 
     client.loop_stop()
-    # publish.single(topic_base + device_id, payload="Message " + str(server_response_dictionary) + " correctly received",
-    #                hostname=broker_server)
-    publish.single(topic_base + device_id, payload="Message " + str(server_response) + " correctly received",
+
+    program_killer = server_response_dictionary["System_status"]
+
+    if program_killer == "kill":
+        publish.single(topic_base + device_id,
+                       payload="Message " + str(server_response_dictionary) + " correctly received. System correctly terminated",
+                       hostname=broker_server)
+        break
+
+    publish.single(topic_base + device_id, payload="Message " + str(server_response_dictionary) + " correctly received",
                    hostname=broker_server)
 
-    # program_killer = server_response_dictionary["Status"]
 
 
-    # if program_killer == "kill":
-    #     break
 
 print("Fuori dal ciclo\nProgramma terminato")

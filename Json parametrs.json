@@ -1,0 +1,47 @@
+{
+  "System_status": "alive" ,
+  "sensor list": [
+    {
+      "sensor_id": "Sensor_wind_0" ,
+      "sensor_status": "Off"
+    } ,
+    {
+      "sensor_id": "Sensor_wind_1" ,
+      "sensor_status": "On"
+    } ,
+    {
+      "sensor_id": "Sensor_wind_2" ,
+      "sensor_status": "Off"
+    } ,
+    {
+      "sensor_id": "Sensor_wind_3" ,
+      "sensor_status": "Off"
+    } ,
+    {
+      "sensor_id": "Sensor_door" ,
+      "sensor_status": "Off"
+    } ,
+    {
+      "sensor_id": "Sensor_movements" ,
+      "sensor_status": "true"
+    }
+  ]
+}
+
+non accetta boolean, cercare perché
+
+{
+  "System_status": "alive",
+  "sensor list": [
+    {
+      "sensor_id": "Sensor_wind_0",
+      "sensor_status": "Off"
+    },{"sensor_id": "Sensor_wind_0",
+      "sensor_status": "Off"} ]}
+
+
+{
+  "System_status": "alive" ,
+  "sensor_id": "Sensor_wind_0" ,
+  "sensor_status": "Off"
+}
