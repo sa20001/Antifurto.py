@@ -3,35 +3,35 @@
   "sensor list": [
     {
       "sensor_id": "Sensor_wind_0" ,
-      "sensor_status": "Off"
+      "sensor_status": 0
     } ,
     {
       "sensor_id": "Sensor_wind_1" ,
-      "sensor_status": "On"
+      "sensor_status": 1
     } ,
     {
       "sensor_id": "Sensor_wind_2" ,
-      "sensor_status": "Off"
+      "sensor_status": 0
     } ,
     {
       "sensor_id": "Sensor_wind_3" ,
-      "sensor_status": "Off"
+      "sensor_status": 0
     } ,
     {
       "sensor_id": "Sensor_door" ,
-      "sensor_status": "Off"
+      "sensor_status": 0
     } ,
     {
       "sensor_id": "Sensor_movements" ,
-      "sensor_status": "true"
+      "sensor_status": 0
     },
     {
     "sensor_id": "Sirena",
-     "sensor_status": "true"
+     "sensor_status": 0
     },
     {
       "sensor_id": "Centralina",
-      "sensor_status": "true
+      "sensor_status": 0
     }
   ]
 }

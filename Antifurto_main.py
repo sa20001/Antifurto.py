@@ -1,13 +1,14 @@
 import paho.mqtt.client as mqtt
 import paho.mqtt.publish as publish
 import ast # da bytecode a dictionary
-import Open_cfg
+import Antifurto_centralina
 
 # TODO: gestione eccezioni
-# TODO: ciclo while pensarlo meglio, magari che ritorna ogni tot secondi
-# TODO: file configurazione da cui leggere intervallo di invio
 # TODO: boolean file Json
-# TODO: gestire due connesioni
+# TODO: fare in modo che se almeno un sensore è 1, il publish.single in Antifurto_centralina.py cambia lo stato della sirena a 1
+# TODO: sirena temporizzata, quindi ON tot sec, OFF tot sec
+# TODO: gestire due connesioni, fix --> non avere due utenti con stesso id
+# TODO: aggiungere supporto log, con data e ora --> meglio farlo in Android
 
 topic_base = 'afp/mr/home/'
 device_id = "SV"
@@ -19,7 +20,7 @@ server_response_dictionary = "" # variabile per salvare il json ricevuto dal ser
 while True:
     server_response = 0 # variabile per estrarre la risposta dal server,
 
-    Open_cfg.test_1()
+    Antifurto_centralina.test_1()
 
     def callback_connessione(client, userdata, flags, rc):
         print("Connected to the server: \"", broker_server + " \" with result code", str(rc))
