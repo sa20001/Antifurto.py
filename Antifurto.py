@@ -57,7 +57,7 @@ while True:
 
     client.loop_stop() #stoppo il client
 
-    program_killer = server_response_dictionary["System_status"] #etraggo il valore della chiave "System_status" e lo associo alla variabile programm_killer
+    program_killer = server_response_dictionary["System_status"] #estraggo il valore della chiave "System_status" e lo associo alla variabile programm_killer
 
     if program_killer == "kill":
         publish.single(topic_base + device_id,
