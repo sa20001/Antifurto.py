@@ -24,6 +24,14 @@
     {
       "sensor_id": "Sensor_movements" ,
       "sensor_status": "true"
+    },
+    {
+    "sensor_id": "Sirena",
+     "sensor_status": "true"
+    },
+    {
+      "sensor_id": "Centralina",
+      "sensor_status": "true
     }
   ]
 }
