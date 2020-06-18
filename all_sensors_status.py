@@ -1,0 +1,1 @@
+# TODO: aggiungere qui tutti gli stati finali che poi andranno utilizzati da android

@@ -8,7 +8,7 @@ import paho.mqtt.publish as publish
 read_file = open("cfg.json", "r")  # apre il file cfg.json in modalità read (lettura)
 file_read = read_file.read()  # creo variabile file_read che corrisponde alla lettura del file
 # print(read_file)
-# print(type(read))
+# print(type(read_file))
 
 
 cfg_dict = ast.literal_eval(file_read)  # converto il la variabile file_read (str) in dizionario
@@ -18,7 +18,7 @@ cfg_dict = ast.literal_eval(file_read)  # converto il la variabile file_read (st
 wait_time = cfg_dict["Delay_time"]  # estraggo dal dizionario il valore della chiave delay time
 # print(wait_time)
 
-topic_base = 'afp/mr/home/'  # | configurazione per connettermi al broker
+topic_base = 'afp/mr/home/Antifurto_Uf_SEhh/'  # | configurazione per connettermi al broker
 device_id = "Centralina_antifurto"  # | rispetto ad antifurto_main cambio il topic in Centralina_antifurto
 broker_server = 'broker.hivemq.com'  # |
 
@@ -57,4 +57,13 @@ def Stop_thread_centralina():
     global while_trigger
     while_trigger = False  # in questo modo rendo il ciclo while false e sblocco il thread
     publish_centralina.join()  # killa il thread
+
+    cfg_dict["Status"] = "Inactive"
+
+    client = mqtt.Client(client_id="AFP")
+    client.connect(broker_server)  # si connette al broker server
+
+    publish.single(topic_base + device_id, payload="Message correctly sent: " + str(cfg_dict),
+                   hostname=broker_server)  # invio al server il file cfg.json
+
     print("Fine esecuzione del thread \"" + device_id + "\"")  # Messaggio di verifica

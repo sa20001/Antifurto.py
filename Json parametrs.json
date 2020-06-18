@@ -1,6 +1,6 @@
 {
   "System_status": "alive" ,
-  "sensor list": [
+  "sensor_list": [
     {
       "sensor_id": "Sensor_wind_0" ,
       "sensor_status": 0
@@ -22,36 +22,12 @@
       "sensor_status": 0
     } ,
     {
-      "sensor_id": "Sensor_movements" ,
+      "sensor_id": "Motion_sensor" ,
       "sensor_status": 0
     },
     {
-    "sensor_id": "Sirena",
+    "sensor_id": "Siren",
      "sensor_status": 0
-    },
-    {
-      "sensor_id": "Centralina",
-      "sensor_status": 0
     }
   ]
-}
-
-https://jsoneditoronline.org/#left=local.zuyuxo&right=local.beyeda
-
-non accetta boolean, cercare perché
-
-{
-  "System_status": "alive",
-  "sensor list": [
-    {
-      "sensor_id": "Sensor_wind_0",
-      "sensor_status": "Off"
-    },{"sensor_id": "Sensor_wind_0",
-      "sensor_status": "Off"} ]}
-
-
-{
-  "System_status": "alive" ,
-  "sensor_id": "Sensor_wind_0" ,
-  "sensor_status": "Off"
 }
