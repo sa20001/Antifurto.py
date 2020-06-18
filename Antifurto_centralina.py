@@ -34,12 +34,8 @@ def code_My_Thread(nome, attesa):
         print(nome + "Number of time program published to Broker: " + str(
             i))  # per controllo, per verificare quante volte ha pubblicato a Broker
 
-        client = mqtt.Client(client_id="AFP")
-        client.connect(broker_server)  # si connette al broker server
-
-        publish.single(topic_base + device_id, payload="Message correctly sent: " + str(cfg_dict),
-                       hostname=broker_server)  # invio al server il file cfg.json
-
+        connect_server()
+        publish_code(device_id, cfg_dict) # invio al server il file cfg.json
         time.sleep(attesa)
 
 
@@ -59,11 +55,16 @@ def Stop_thread_centralina():
     publish_centralina.join()  # killa il thread
 
     cfg_dict["Status"] = "Inactive"
+    connect_server()
+    publish_code(device_id, cfg_dict) # invio al server il file cfg.json, con stato inactive
+    print("Fine esecuzione del thread \"" + device_id + "\"")  # Messaggio di verifica
 
+
+def publish_code(device_id_val, cfg_dict_val):
+    publish.single(topic_base + device_id_val, payload="Message correctly sent: " + str(cfg_dict_val),
+                   hostname=broker_server)
+
+
+def connect_server():
     client = mqtt.Client(client_id="AFP")
     client.connect(broker_server)  # si connette al broker server
-
-    publish.single(topic_base + device_id, payload="Message correctly sent: " + str(cfg_dict),
-                   hostname=broker_server)  # invio al server il file cfg.json
-
-    print("Fine esecuzione del thread \"" + device_id + "\"")  # Messaggio di verifica

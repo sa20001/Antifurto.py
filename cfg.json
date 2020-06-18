@@ -1,6 +1,6 @@
 {
   "Delay_time": 5,
   "Status": "Active",
-  "Siren_on": 7,
-  "Siren_off": 1
+  "Siren_time_on": 7,
+  "Siren_time_off": 1
 }
