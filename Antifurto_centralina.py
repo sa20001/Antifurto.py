@@ -34,24 +34,7 @@ def code_My_Thread(nome, attesa):
         print(nome + "Number of time program published to Broker: " + str(
             i))  # per controllo, per verificare quante volte ha pubblicato a Broker
 
-        time.sleep(
-            0.1)  # questa pausa impedisce (riduce sensibilmente) che i callback_connessione_disconnessione di questo file e Antifurto_main avvengano assieme mandando
-
-        # in crash ast e dovendo riavviare l'applicazione per farla funzionare
-        # TODO: trovare soluzione più intelligente al sleep, verificare se funziona togliendo i connect e disconnet  qui sotto, oppure semplicemente cambiano nome alle funzioni (dovrebbe funzionare la seconda strada)
-
-        def callback_connessione(client, userdata, flags, rc):
-            print("Connected to the server: \"", broker_server + " \" with result code", str(rc))
-            # sottoscrivo gli argomenti di interesse
-            client.subscribe(topic_base + "#")
-
-        def callback_disconnessione(client, userdata, rc):
-            if rc != 0:
-                print('Disconnesso')
-
         client = mqtt.Client(client_id="AFP")
-        client.on_connect = callback_connessione  # Define the connect callback implementation.
-        client.on_disconnect = callback_disconnessione
         client.connect(broker_server)  # si connette al broker server
 
         publish.single(topic_base + device_id, payload="Message correctly sent: " + str(cfg_dict),
