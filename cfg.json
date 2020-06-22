@@ -2,5 +2,14 @@
   "Delay_time": 5,
   "Status": "Active",
   "Siren_time_on": 7,
-  "Siren_time_off": 1
+  "Siren_time_off": 1,
+  "Topic_base" : "afp/mr/home/Antifurto_Uf_SEhh/",
+  "Broker_server" : "broker.hivemq.com",
+  "Device_id_main" : "Antifurto_main",
+  "Device_id_main_check" : "Antifurto_main_check",
+  "Device_id_main_alarm" : "Antifurto_main_alarm",
+  "Device_id_main_kill" : "Antifurto_main_kill",
+  "Device_id_main_error" : "Antifurto_main_error",
+  "Device_id_main_error_message" : "Antifurto_main_error_message",
+  "Device_id_centralina" : "Centralina_antifurto"
 }

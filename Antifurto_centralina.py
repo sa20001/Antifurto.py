@@ -19,9 +19,15 @@ cfg_dict = ast.literal_eval(file_read)  # converto il la variabile file_read (st
 wait_time = cfg_dict["Delay_time"]  # estraggo dal dizionario il valore della chiave delay time
 # print(wait_time)
 
-topic_base = 'afp/mr/home/Antifurto_Uf_SEhh/'  # | configurazione per connettermi al broker
-device_id = "Centralina_antifurto"  # | rispetto ad antifurto_main cambio il topic in Centralina_antifurto
-broker_server = 'broker.hivemq.com'  # |
+topic_base = cfg_dict["Topic_base"]  # configurazione per connettermi al broker
+device_id_main = cfg_dict["Device_id_main"]
+device_id_centralina = cfg_dict["Device_id_centralina"]
+device_id_check = cfg_dict["Device_id_main_check"]
+device_id_alarm = cfg_dict["Device_id_main_alarm"]
+device_id_kill = cfg_dict["Device_id_main_kill"]
+device_id_error = cfg_dict["Device_id_main_error"]
+device_id_error_message = cfg_dict["Device_id_main_error_message"]
+broker_server = cfg_dict["Broker_server"]  # |
 
 i = 0  # inizializzo la variabile i a 0
 
@@ -36,7 +42,7 @@ def code_My_Thread(nome, attesa):
             i))  # per controllo, per verificare quante volte ha pubblicato a Broker
 
         connect_server()
-        publish_code(device_id, cfg_dict) # invio al server il file cfg.json
+        publish_code(device_id_centralina, cfg_dict) # invio al server il file cfg.json
         time.sleep(attesa)
 
 
@@ -57,8 +63,8 @@ def Stop_thread_centralina():
 
     cfg_dict["Status"] = "Inactive"
     connect_server()
-    publish_code(device_id, cfg_dict) # invio al server il file cfg.json, con stato inactive
-    print("Fine esecuzione del thread \"" + device_id + "\"")  # Messaggio di verifica
+    publish_code(device_id_centralina, cfg_dict) # invio al server il file cfg.json, con stato inactive
+    print("Fine esecuzione del thread \"" + device_id_centralina + "\"")  # Messaggio di verifica
 
 
 def publish_code(device_id_val, cfg_dict_val):
