@@ -7,6 +7,7 @@ import paho.mqtt.publish as publish
 
 read_file = open("cfg.json", "r")  # apre il file cfg.json in modalità read (lettura)
 file_read = read_file.read()  # creo variabile file_read che corrisponde alla lettura del file
+read_file.close()
 # print(read_file)
 # print(type(read_file))
 
@@ -62,7 +63,7 @@ def Stop_thread_centralina():
 
 def publish_code(device_id_val, cfg_dict_val):
     publish.single(topic_base + device_id_val, payload="Message correctly sent: " + str(cfg_dict_val),
-                   hostname=broker_server)
+                   hostname=broker_server) # TODO: fixare errore che si presenta come prima linea quando si avvia il programma
 
 
 def connect_server():

@@ -4,6 +4,7 @@ import ast  # da bytecode a dictionary
 import Antifurto_centralina
 from termcolor import colored
 
+
 # TODO: aggiungere supporto log, con data e ora --> meglio farlo in Android
 # TODO: vedere perché (raramente perde i messaggi dal server)
 
@@ -34,7 +35,7 @@ while True:
 
     def callback_ricezione(client, userdata, message):
         print(userdata)
-        print("Messagge received from " + message.topic + " with content " + str(message.payload))
+        print("Message received from " + message.topic + " with content " + str(message.payload))
         global server_response  # variabile definita global per estrarre la risposta del server dalla funzione
         server_response = message.payload  # estraggo la risposta da message.payload e la salvo in questa variabile
 
