@@ -7,7 +7,7 @@
     } ,
     {
       "sensor_id": "Sensor_wind_1" ,
-      "sensor_status": 1
+      "sensor_status": 0
     } ,
     {
       "sensor_id": "Sensor_wind_2" ,
