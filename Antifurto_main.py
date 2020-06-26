@@ -22,10 +22,10 @@ def pass_sensor_win0():
 
     if sensor_list[0]["sensor_status"] == 0:
         # print("IL SENSORE WIN1 HA VALORE 0")
-        bool_check = not False
+        bool_check = False
     else:
         # print("IL SENSORE WIN1 HA VALORE 1")
-        bool_check = not True
+        bool_check = True
 
     # print("STAMPO IL VALORE DI BOOL CHECK" + str(bool_check))
     return bool_check
@@ -33,49 +33,49 @@ def pass_sensor_win0():
 def pass_sensor_win1():
     sensor_list = server_response_dictionary["sensor_list"]
     if sensor_list[1]["sensor_status"] == 0:
-        bool_check = not False
+        bool_check = False
     else:
-        bool_check = not True
+        bool_check = True
     return bool_check
 
 def pass_sensor_win2():
     sensor_list = server_response_dictionary["sensor_list"]
     if sensor_list[2]["sensor_status"] == 0:
-        bool_check = not False
+        bool_check = False
     else:
-        bool_check = not True
+        bool_check = True
     return bool_check
 
 def pass_sensor_win3():
     sensor_list = server_response_dictionary["sensor_list"]
     if sensor_list[3]["sensor_status"] == 0:
-        bool_check = not False
+        bool_check = False
     else:
-        bool_check = not True
+        bool_check = True
     return bool_check
 
 def pass_sensor_door():
     sensor_list = server_response_dictionary["sensor_list"]
     if sensor_list[4]["sensor_status"] == 0:
-        bool_check = not False
+        bool_check = False
     else:
-        bool_check = not True
+        bool_check = True
     return bool_check
 
 def pass_sensor_motion():
     sensor_list = server_response_dictionary["sensor_list"]
     if sensor_list[5]["sensor_status"] == 0:
-        bool_check = not False
+        bool_check = False
     else:
-        bool_check = not True
+        bool_check = True
     return bool_check
 
 def pass_siren():
     sensor_list = server_response_dictionary["sensor_list"]
     if sensor_list[6]["sensor_status"] == 0:
-        bool_check = not False
+        bool_check = False
     else:
-        bool_check = not True
+        bool_check = True
     return bool_check
 # nego i bool per riutilizzare le key dell'intent per passare le key da debug.class a sensors.class
 
