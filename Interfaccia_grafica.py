@@ -3,15 +3,16 @@ import Antifurto_main
 import time
 from threading import Thread
 
-nome = "Bob"
-attesa= 2
+wait_time = 2
 
-def code_My_Thread(nome, attesa):
+
+def code_Antifuto_main(attesa):
     Antifurto_main.main_program()  # per iniziare tutto
     time.sleep(attesa)
 
-th1 = Thread(target=code_My_Thread, args=(nome, attesa))
-th1.start()
+
+thread_antifurto_main = Thread(target=code_Antifuto_main, args=(wait_time,))
+thread_antifurto_main.start()
 
 
 # Antifurto_main.on_Destroy()  # per killare tutto
