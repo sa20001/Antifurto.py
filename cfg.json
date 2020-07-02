@@ -11,5 +11,7 @@
   "Device_id_main_kill" : "Antifurto_main_kill",
   "Device_id_main_error" : "Antifurto_main_error",
   "Device_id_main_error_message" : "Antifurto_main_error_message",
-  "Device_id_centralina" : "Centralina_antifurto"
+  "Device_id_centralina" : "Centralina_antifurto",
+  "Utente": "utente",
+  "Password": "progetto"
 }
