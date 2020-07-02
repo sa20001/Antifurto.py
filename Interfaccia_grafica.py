@@ -284,6 +284,8 @@ welcome.config(text='Benvenuto')
 
 
 # testo nome app
+testox = Label(f, text="Pezzini, Vulcan, La Sala", font="italic 15", bg="cyan")
+testox.pack(side=BOTTOM)
 testo = Label(f, text="ANTIFURTO", background="cyan", font="Times 28 bold underline")
 testo.pack(side=TOP)  # impacchetamento della label per poterlo visualizzare
 # side = lato del testo nella finestra
