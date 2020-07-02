@@ -25,7 +25,7 @@ thread_antifurto_main = Thread(target=code_antifuto_main, args=(2,))
 thread_antifurto_main.start()
 
 
-def B_H():  # evento alla pressione del tasto #TASTO PRINCIPALE,HOME
+def button_home():  # evento alla pressione del tasto #TASTO PRINCIPALE,HOME
 
     home = Label(f, width=175, height=50)
     home.place(y=100)
@@ -35,7 +35,7 @@ def B_H():  # evento alla pressione del tasto #TASTO PRINCIPALE,HOME
     home1 = Label(f, text='AUTENTIFICAZIONE', font='Times 22')
     home1.place(x=xlog + 10, y=130)
 
-    def PressionePulsante():
+    def pressione_pulsante():
         user = c_user.get()
         password = c_pass.get()
 
@@ -66,7 +66,7 @@ def B_H():  # evento alla pressione del tasto #TASTO PRINCIPALE,HOME
     l_mex.place(x=xlog, y=370)
 
     # BOTTONI
-    bl1 = Button(f, text='Accedi', command=PressionePulsante)
+    bl1 = Button(f, text='Accedi', command=pressione_pulsante)
     bl1.place(x=xlog + 70, y=330)
 
     bl2 = Button(f, text='Annulla', command=elimina)
@@ -86,13 +86,13 @@ def B_H():  # evento alla pressione del tasto #TASTO PRINCIPALE,HOME
     c_pass.select_range(0, END)
 
 
-
 def button_log():  # TASTO PRINCIPALE, LOG
     os.startfile("Log.log")
 
 
 s_color = 'light grey'
-color_bck= "cyan"
+color_bck = "cyan"
+
 
 def button_sensors():  # TASTO PRINCIPALE,  SENSORI
     global color_bck
@@ -268,8 +268,6 @@ def on_closing():
         thread_antifurto_main.join()
 
 
-
-
 # titolo e parametri finestra
 f = Tk()
 f.title("finestra")  # titolo finestra
@@ -294,7 +292,7 @@ testo.configure(cursor="hand2")  # cambiare cursore
 # testo nome app
 
 # Pulsanti
-b0 = Button(f, text="HOME", command=B_H, width=10)  # command per assegnare al bottone la funzione
+b0 = Button(f, text="HOME", command=button_home, width=10)  # command per assegnare al bottone la funzione
 b0.place(x=50, y=50)
 b1 = Button(f, text="SENSORI", command=button_sensors, width=10)
 b1.place(x=500, y=50)
